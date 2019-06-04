@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import NewComponent from './components/newComponent';
+import NewComponent from './FilterComponent/FilterComponent';
 
 class App extends Component {
 	render() {

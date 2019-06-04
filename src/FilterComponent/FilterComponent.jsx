@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 import FilterGroup from './FilterGroup/FilterGroup';
 
-function newComponent() {
+function filterComponent() {
 	const root = document.getElementById('app');
 	const appData = JSON.parse(root.dataset.filters);
 
@@ -53,4 +53,4 @@ function newComponent() {
 	)
 }
 
-export default newComponent;
+export default filterComponent;

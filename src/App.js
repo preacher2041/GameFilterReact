@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import NewComponent from './FilterComponent/FilterComponent';
+import NewComponent from './components/GamesFilter';
 
 class App extends Component {
 	render() {

@@ -5,7 +5,7 @@ import FilterButton from '../FilterButton/FilterButton';
 function filterGroup(props) {
 
 	return(
-		<div key={props.filterGroupKey}>
+		<div>
 			<p>{props.filterGroupName}</p>
 			<p>{props.filterGroupType}</p>
 

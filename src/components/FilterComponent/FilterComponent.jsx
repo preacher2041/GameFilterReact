@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { fetchFilterData } from '../store/actions';
 
-// import FilterGroup from './FilterGroup/FilterGroup';
+import FilterGroup from './FilterGroup/FilterGroup';
 
 const FilterComponent = (props) => {
 
@@ -17,11 +17,14 @@ const FilterComponent = (props) => {
 		return (
 			<div>
 			{props.filterData.map((group, i) => {
-					console.log('Group: ', group);
-					console.log('Index: ', i);
 
 					return (
-						<div key={i}>{group.filterGroupName}</div>
+						<FilterGroup
+							key={i}
+							filterGroupName={group.filterGroupName}
+							filterGroupType={group.filterGroupType}
+							filterLabels={group.filterLabels}
+						/>
 					)
 				})
 			}

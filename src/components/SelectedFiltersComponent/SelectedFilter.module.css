@@ -1,0 +1,21 @@
+.default {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.filterItem {
+    background-color: coral;
+    color: #FFF;
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+
+.filterItem:after {
+    content: 'X';
+    background-color: #363636;
+    color: #FFF;
+    border-left: 1px solid #363636;
+    margin-left: 5px;
+}

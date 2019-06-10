@@ -3,7 +3,7 @@ import styles from './FilterButton.module.css';
 
 
 
-function filterButton(props) {
+function FilterButton(props) {
 	const [buttonState, setButtonState] = useState(styles.inactive);
 
 	const clickHandler = (event) => {
@@ -29,4 +29,4 @@ function filterButton(props) {
 
 }
 
-export default filterButton;
+export default FilterButton;

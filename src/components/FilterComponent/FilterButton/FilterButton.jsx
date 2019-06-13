@@ -1,32 +1,40 @@
-import React, {useState} from 'react';
+import React from 'react';
+import {connect} from 'react-redux';
 import styles from './FilterButton.module.css';
+import {toggleFilterState, setSelectedFilter} from '../store/actions';
 
-
-
-function FilterButton(props) {
-	const [buttonState, setButtonState] = useState(styles.inactive);
-
-	const clickHandler = (event) => {
-		if (buttonState === styles.active) {
-			setButtonState(styles.inactive);
-		} else {
-			setButtonState(styles.active);
-		}
-
-		props.clickHandler(event);
+function FilterButton({filterKey, filterButtonKey, filterLabel, filterState, filterGroupKey, toggleFilterState, setSelectedFilter}) {
+	const onFilterButtonClicked = (event) => {
+		const filterGroupIndex = event.target.dataset.filtergroupindex;
+		const filterButtonIndex = event.target.dataset.filterbuttonindex;
+		toggleFilterState(filterGroupIndex, filterButtonIndex);
+		setSelectedFilter(filterLabel);
 	};
 
-	return(
+	const setStyles = () => {
+		if (filterState) {
+			return styles.active;
+		} else {
+			return styles.inactive;
+		}
+	};
+
+	return (
 		<button
-			key={props.filterKey}
-			className={buttonState}
-			onClick={clickHandler}
-			data-filterlabel={props.filterLabel}
+			key={filterKey}
+			className={setStyles()}
+			data-filtergroupindex={filterGroupKey}
+			data-filterbuttonindex={filterButtonKey}
+			onClick={onFilterButtonClicked}
 		>
-			{props.filterLabel}
+			{filterLabel}
 		</button>
 	)
-
 }
 
-export default FilterButton;
+const mapDispatchToProps = dispatch => ({
+	toggleFilterState: (filterGroupIndex, filterButtonIndex) => dispatch(toggleFilterState(filterGroupIndex, filterButtonIndex)),
+	setSelectedFilter: (filterLabel) => dispatch(setSelectedFilter(filterLabel))
+});
+
+export default connect(null, mapDispatchToProps)(FilterButton);

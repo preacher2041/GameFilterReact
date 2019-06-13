@@ -1,34 +1,32 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-
-import { fetchFilterData } from '../store/actions';
-
+import { fetchFilterData } from './store/actions';
 import FilterGroup from './FilterGroup/FilterGroup';
+import Grid from '@material-ui/core/Grid';
 
-const FilterComponent = (props) => {
+const FilterComponent = ({fetchFilterData, loadingData, filterData}) => {
 
 	useEffect(() => {
-		props.fetchFilterData();
+		fetchFilterData();
 		// eslint-disable-next-line
 	}, []);
 
-	if (props.loadingData === false) {
+	if (loadingData === false) {
 
 		return (
-			<div>
-			{props.filterData.map((group, i) => {
-
+			<Grid item xs={3}>
+				{filterData.map((group, i) => {
 					return (
 						<FilterGroup
 							key={i}
 							filterGroupName={group.filterGroupName}
 							filterGroupType={group.filterGroupType}
 							filterLabels={group.filterLabels}
+							filterGroupKey={i}
 						/>
 					)
-				})
-			}
-			</div>
+				})}
+			</Grid>
 		)
 	} else {
 		return (

@@ -1,40 +1,70 @@
 {
   "filterGroups":[
     {
-      "filterGroupName":"platform",
-      "filterGroupType":"or",
+      "filterGroupName":  "platform",
+      "filterGroupType": "or",
       "filterLabels":[
-        "ps4",
-        "ps3",
-        "psvita",
-        "psvr"
+        {
+          "label": "ps4",
+          "isActive": false
+        },{
+          "label": "ps3",
+          "isActive": false
+        },{
+          "label": "psvita",
+          "isActive": false
+        },{
+          "label": "psvr",
+          "isActive": false
+        }
       ]
     },
     {
-      "filterGroupName":"genre",
-      "filterGroupType":"or",
+      "filterGroupName":  "genre",
+      "filterGroupType": "or",
       "filterLabels":[
-        "action",
-        "racing",
-        "rpg",
-        "fps"
+        {
+          "label": "action",
+          "isActive": false
+        },{
+          "label": "racing",
+          "isActive": false
+        },{
+          "label": "rpg",
+          "isActive": false
+        },{
+          "label": "action",
+          "isActive": false
+        }
       ]
     },
     {
-      "filterGroupName":"price",
-      "filterGroupType":"or",
+      "filterGroupName":  "price",
+      "filterGroupType": "or",
       "filterLabels":[
-        "price1",
-        "price2",
-        "price3",
-        "price4"
+        {
+          "label": "price1",
+          "isActive": false
+        }, {
+          "label": "price2",
+          "isActive": false
+        },{
+          "label": "price3",
+          "isActive": false
+        },{
+          "label": "price4",
+          "isActive": false
+        }
       ]
     },
     {
-      "filterGroupName":"misc",
-      "filterGroupType":"and",
+      "filterGroupName":  "misc",
+      "filterGroupType": "and",
       "filterLabels":[
-        "sale"
+        {
+          "label": "sale",
+          "isActive": false
+        }
       ]
     }
   ]

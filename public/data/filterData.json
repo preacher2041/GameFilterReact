@@ -2,67 +2,46 @@
   "filterGroups":[
     {
       "filterGroupName":  "platform",
-      "filterGroupType": "or",
+      "filterGroupType": "or-filter",
       "filterLabels":[
         {
-          "label": "ps4",
+          "slug": "ps4--1",
+          "label": "PlayStation 4",
           "isActive": false
         },{
-          "label": "ps3",
+          "slug": "ps3",
+          "label": "PlayStation 3",
           "isActive": false
         },{
-          "label": "psvita",
+          "slug": "psvita",
+          "label": "PlayStation Vita",
           "isActive": false
         },{
-          "label": "psvr",
+          "slug": "psvr",
+          "label": "PlayStation VR",
           "isActive": false
         }
       ]
     },
     {
       "filterGroupName":  "genre",
-      "filterGroupType": "or",
+      "filterGroupType": "or-filter",
       "filterLabels":[
         {
-          "label": "action",
+          "slug": "adventure",
+          "label": "Adventure",
           "isActive": false
         },{
-          "label": "racing",
+          "slug": "sport",
+          "label": "Sport",
           "isActive": false
         },{
-          "label": "rpg",
+          "slug": "role-playing-rpg",
+          "label": "Role Playing Game",
           "isActive": false
         },{
-          "label": "action",
-          "isActive": false
-        }
-      ]
-    },
-    {
-      "filterGroupName":  "price",
-      "filterGroupType": "or",
-      "filterLabels":[
-        {
-          "label": "price1",
-          "isActive": false
-        }, {
-          "label": "price2",
-          "isActive": false
-        },{
-          "label": "price3",
-          "isActive": false
-        },{
-          "label": "price4",
-          "isActive": false
-        }
-      ]
-    },
-    {
-      "filterGroupName":  "misc",
-      "filterGroupType": "and",
-      "filterLabels":[
-        {
-          "label": "sale",
+          "slug": "shooter",
+          "label": "Shooter",
           "isActive": false
         }
       ]

@@ -1,40 +1,45 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import styles from './FilterButton.module.css';
-import {toggleFilterState, setSelectedFilter} from '../store/actions';
+import Button from '@material-ui/core/Button';
+import {toggleFilterState, setSelectedFilterData} from '../../store/actions';
 
-function FilterButton({filterKey, filterButtonKey, filterLabel, filterState, filterGroupKey, toggleFilterState, setSelectedFilter}) {
-	const onFilterButtonClicked = (event) => {
-		const filterGroupIndex = event.target.dataset.filtergroupindex;
-		const filterButtonIndex = event.target.dataset.filterbuttonindex;
+function FilterButton({filterKey, filterButtonKey, filterLabel, filterSlug, filterState, filterGroupKey, filterGroupType, filterGroupCategory, toggleFilterState, setSelectedFilterData}) {
+	const onFilterButtonClicked = (filterGroupIndex, filterButtonIndex) => {
 		toggleFilterState(filterGroupIndex, filterButtonIndex);
-		setSelectedFilter(filterLabel);
+		setSelectedFilterData(filterSlug, filterLabel, filterGroupType, filterGroupCategory, filterGroupIndex, filterButtonIndex);
 	};
 
-	const setStyles = () => {
-		if (filterState) {
-			return styles.active;
-		} else {
-			return styles.inactive;
-		}
-	};
-
-	return (
-		<button
-			key={filterKey}
-			className={setStyles()}
-			data-filtergroupindex={filterGroupKey}
-			data-filterbuttonindex={filterButtonKey}
-			onClick={onFilterButtonClicked}
-		>
-			{filterLabel}
-		</button>
-	)
+	if (filterState) {
+		return (
+			<Button
+				key={filterKey}
+				variant='contained'
+				color='primary'
+				className={styles.default}
+				onClick={() => onFilterButtonClicked(filterGroupKey, filterButtonKey)}
+			>
+				{filterLabel}
+			</Button>
+		)
+	} else {
+		return (
+			<Button
+				key={filterKey}
+				variant='outlined'
+				color='primary'
+				className={styles.default}
+				onClick={() => onFilterButtonClicked(filterGroupKey, filterButtonKey)}
+			>
+				{filterLabel}
+			</Button>
+		)
+	}
 }
 
 const mapDispatchToProps = dispatch => ({
 	toggleFilterState: (filterGroupIndex, filterButtonIndex) => dispatch(toggleFilterState(filterGroupIndex, filterButtonIndex)),
-	setSelectedFilter: (filterLabel) => dispatch(setSelectedFilter(filterLabel))
+	setSelectedFilterData: (filterSlug, filterLabel, filterGroupType, filterGroupCategory, filterGroupIndex, filterButtonIndex) => dispatch(setSelectedFilterData(filterSlug, filterLabel, filterGroupType, filterGroupCategory, filterGroupIndex, filterButtonIndex)),
 });
 
 export default connect(null, mapDispatchToProps)(FilterButton);

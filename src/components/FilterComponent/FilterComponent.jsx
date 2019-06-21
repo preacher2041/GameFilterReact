@@ -1,17 +1,17 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { fetchFilterData } from './store/actions';
+import { fetchFilterData } from '../store/actions';
 import FilterGroup from './FilterGroup/FilterGroup';
 import Grid from '@material-ui/core/Grid';
 
-const FilterComponent = ({fetchFilterData, loadingData, filterData}) => {
+const FilterComponent = ({fetchFilterData, isLoading, filterData}) => {
 
 	useEffect(() => {
 		fetchFilterData();
 		// eslint-disable-next-line
 	}, []);
 
-	if (loadingData === false) {
+	if (isLoading === false) {
 
 		return (
 			<Grid item xs={3}>
@@ -22,6 +22,7 @@ const FilterComponent = ({fetchFilterData, loadingData, filterData}) => {
 							filterGroupName={group.filterGroupName}
 							filterGroupType={group.filterGroupType}
 							filterLabels={group.filterLabels}
+							filterSlugs={group.filterSlugs}
 							filterGroupKey={i}
 						/>
 					)
@@ -36,8 +37,8 @@ const FilterComponent = ({fetchFilterData, loadingData, filterData}) => {
 };
 
 const mapStateToProps = state => ({
-	filterData: state.filters.filterData,
-	loadingData: state.filters.loadingData,
+	filterData: state.GameFiltersComponent.filterData,
+	isLoading: state.GameFiltersComponent.isLoading,
 });
 
 const mapDispatchToProps = dispatch => ({

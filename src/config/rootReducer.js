@@ -10,35 +10,24 @@ export default combineReducers({
 });
 
 export const filterData = (itemData, selectedFilterData, sortValue) => {
-	const FILTER_TYPES_UNSET = {
-		AND: 'and-filter',
-		OR: 'or-filter'
-	};
-
 	const SORT_METHOD = {
 		'titleAsc': (resultA, resultB) => {
-			let a = resultA.name;
-			let b = resultB.name;
-
-			if (a < b) {
+			if (resultA.name < resultB.name) {
 				return -1;
 			}
 
-			if (a > b) {
+			if (resultA.name > resultB.name) {
 				return 1;
 			}
 
 			return 0;
 		},
 		'titleDesc': (resultA, resultB) => {
-			let a = resultA.name;
-			let b = resultB.name;
-
-			if (a > b) {
+			if (resultA.name > resultB.name) {
 				return -1;
 			}
 
-			if (a < b) {
+			if (resultA.name < resultB.name) {
 				return 1;
 			}
 
@@ -53,27 +42,27 @@ export const filterData = (itemData, selectedFilterData, sortValue) => {
 	};
 	const sortFunction  = SORT_METHOD[sortValue] || SORT_METHOD.NONE;
 
-	const activeFilters = selectedFilterData.reduce((filterInstructions, filterItem) => {
+	const selectedFilters = selectedFilterData.reduce((filterRules, filterItem) => {
 		const filterType = filterItem.filterType;
 		const filterCategory = filterItem.filterCategory;
 		const filterSlug = filterItem.filterSlug;
 
-		let instruction = filterInstructions
-			.find(instruction => instruction.filterCategory === filterCategory);
+		let rule = filterRules
+			.find(rule => rule.filterCategory === filterCategory);
 
-		if(!instruction) {
-			instruction = {
+		if(!rule) {
+			rule = {
 				filterType,
 				filterCategory,
 				filterSlug: []
 			};
 
-			filterInstructions.push(instruction);
+			filterRules.push(rule);
 		}
 
-		instruction.filterSlug.push(filterSlug);
+		rule.filterSlug.push(filterSlug);
 
-		return filterInstructions;
+		return filterRules;
 	}, []);
 
 	return itemData
@@ -82,39 +71,13 @@ export const filterData = (itemData, selectedFilterData, sortValue) => {
 				.map($tag => $tag.slug));
 
 			// eslint-disable-next-line
-			return activeFilters.every(filter => {
-				if (filter.filterType === FILTER_TYPES_UNSET.AND) {
-					// for AND filers, all tags must be present
+			return selectedFilters.every(filter => {
+				if (filter.filterType === 'and-filter') {
 					return filter.filterSlug.every(filterTag => itemTags.includes(filterTag));
-				} else if (filter.filterType === FILTER_TYPES_UNSET.OR) {
-					// for OR filers, any one tag must be present
+				} else if (filter.filterType === 'or-filter') {
 					return filter.filterSlug.some(filterTag => itemTags.includes(filterTag));
 				}
 			})
 		})
 		.sort(sortFunction);
-};
-
-export const getitemTitle = (gameData, i) => {
-	return gameData[i.itemCardIndex].name;
-};
-
-export const getitemSummary = (gameData, i) => {
-	return gameData[i.itemCardIndex].summary;
-};
-
-export const getitemCoverUrl = (gameData, i) => {
-	return gameData[i.itemCardIndex].cover.url;
-};
-
-export const getitemRating = (gameData, i) => {
-	return gameData[i.itemCardIndex].total_rating;
-};
-
-export const getitemGenres = (gameData, i) => {
-	return gameData[i.itemCardIndex].genres;
-};
-
-export const getitemPlatforms = (gameData, i) => {
-	return gameData[i.itemCardIndex].platforms;
 };

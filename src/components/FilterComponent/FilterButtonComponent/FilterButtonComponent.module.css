@@ -1,7 +1,7 @@
 .default {
     width: 48%;
     height: 75px;
-    border: none;
+    border: 1px solid black !important;
     -webkit-border-radius: 0 !important;
     -moz-border-radius: 0 !important;
     border-radius: 0 !important;

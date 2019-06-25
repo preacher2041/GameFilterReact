@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
-import NewComponent from './components/GamesFilter';
+import FiltersComponent from './components/FiltersComponent';
 
 class App extends Component {
 	render() {
 		return <React.Fragment>
-			<NewComponent/>
+			<FiltersComponent/>
 		</React.Fragment>
 	}
 }

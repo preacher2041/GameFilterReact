@@ -1,7 +1,8 @@
 {
   "filterGroups":[
     {
-      "filterGroupName":  "platform",
+      "filterGroupLabel":  "Platform",
+      "filterGroupSlug":  "platform",
       "filterGroupType": "or-filter",
       "filterLabels":[
         {
@@ -24,7 +25,8 @@
       ]
     },
     {
-      "filterGroupName":  "genre",
+      "filterGroupLabel":  "Genre",
+      "filterGroupSlug":  "genre",
       "filterGroupType": "or-filter",
       "filterLabels":[
         {
@@ -42,6 +44,65 @@
         },{
           "slug": "shooter",
           "label": "Shooter",
+          "isActive": false
+        },{
+          "slug": "hack-and-slash-beat-em-up",
+          "label": "Hack and slash/Beat 'em up",
+          "isActive": false
+        },{
+          "slug": "indie",
+          "label": "Indie",
+          "isActive": false
+        },{
+          "slug": "tactical",
+          "label": "Tactical",
+          "isActive": false
+        },{
+          "slug": "arcade",
+          "label": "Arcade",
+          "isActive": false
+        },{
+          "slug": "racing",
+          "label": "Racing",
+          "isActive": false
+        },{
+          "slug": "puzzle",
+          "label": "Puzzle",
+          "isActive": false
+        },{
+          "slug": "simulator",
+          "label": "Simulator",
+          "isActive": false
+        },{
+          "slug": "platform",
+          "label": "Platform",
+          "isActive": false
+        },{
+          "slug": "strategy",
+          "label": "Strategy",
+          "isActive": false
+        },{
+          "slug": "real-time-strategy-rts",
+          "label": "Real Time Strategy (RTS)",
+          "isActive": false
+        }
+      ]
+    },{
+      "filterGroupLabel":  "Rating",
+      "filterGroupSlug":  "rating",
+      "filterGroupType": "and-filter",
+      "filterLabels":[
+        {
+          "slug": "essential",
+          "label": "Essential",
+          "isActive": false
+        },{
+          "slug": "recommended",
+          "label": "Recommended",
+          "isActive": false
+        },{
+          "slug": "avoid",
+          "label": "Avoid",
           "isActive": false
         }
       ]

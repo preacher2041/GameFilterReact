@@ -1,25 +1,30 @@
 import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { fetchFilterData } from '../store/actions';
-import FilterGroup from './FilterGroup/FilterGroup';
-import Grid from '@material-ui/core/Grid';
+import {connect} from 'react-redux';
 
-const FilterComponent = ({fetchFilterData, isLoading, filterData}) => {
+import {Grid} from '@material-ui/core';
+
+import { fetchFilterData } from './store/actions';
+import FilterGroup from './FilterGroupComponent/FilterGroupComponent';
+
+import styles from './FilterComponent.module.css';
+
+const FilterComponent = ({fetchFilterData, filterDataIsLoading, filterData}) => {
 
 	useEffect(() => {
 		fetchFilterData();
 		// eslint-disable-next-line
 	}, []);
 
-	if (isLoading === false) {
+	if (filterDataIsLoading === false) {
 
 		return (
-			<Grid item xs={3}>
+			<Grid item xs={3} className={styles.root}>
 				{filterData.map((group, i) => {
 					return (
 						<FilterGroup
 							key={i}
-							filterGroupName={group.filterGroupName}
+							filterGroupLabel={group.filterGroupLabel}
+							filterGroupSlug={group.filterGroupSlug}
 							filterGroupType={group.filterGroupType}
 							filterLabels={group.filterLabels}
 							filterSlugs={group.filterSlugs}
@@ -37,8 +42,8 @@ const FilterComponent = ({fetchFilterData, isLoading, filterData}) => {
 };
 
 const mapStateToProps = state => ({
-	filterData: state.GameFiltersComponent.filterData,
-	isLoading: state.GameFiltersComponent.isLoading,
+	filterData: state.FiltersComponent.filterData,
+	filterDataIsLoading: state.FiltersComponent.filterDataIsLoading,
 });
 
 const mapDispatchToProps = dispatch => ({

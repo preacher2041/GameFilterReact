@@ -1,9 +1,0 @@
-.root {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.formControl {
-    margin: 8px !important;
-    min-width: 120px !important;
-}

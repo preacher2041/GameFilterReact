@@ -1,8 +1,12 @@
 import { all } from 'redux-saga/effects';
-import GameFilterComponentSaga from '../components/store/sagas';
+import FilterComponentSaga from '../components/FilterComponent/store/sagas';
+import GamesComponentSaga from '../components/FilterResultsComponent/store/sagas';
+import SelectedFiltersComponentSaga from '../components/AppBarComponent/store/sagas';
 
 export default function* rootSaga () {
 	yield all([
-		GameFilterComponentSaga(),
+		FilterComponentSaga(),
+		GamesComponentSaga(),
+		SelectedFiltersComponentSaga()
 	]);
 }

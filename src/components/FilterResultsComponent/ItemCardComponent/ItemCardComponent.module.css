@@ -1,0 +1,57 @@
+.root {
+    flex-grow: 1;
+}
+
+.paper {
+    padding: 16px;
+    margin: auto;
+    max-width: 500px;
+}
+
+.image {
+    width: 128px;
+    height: 128px;
+}
+
+.img {
+    margin: auto;
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.summary {
+    display: block;
+    max-height: 100px;
+    min-height: 100px;
+    overflow: hidden;
+    margin-bottom: 20px !important;
+    cursor: pointer;
+}
+
+.genresContainer {
+    min-height: 120px;
+    max-height: 120px;
+    cursor: pointer;
+    padding: 0!important;
+}
+
+.genres {
+    margin-left: 5px !important;
+    margin-bottom: 5px !important;
+}
+
+.platform {
+    cursor: pointer;
+    display: inline !important;
+    padding-right: 5px;
+    border-right: 1px solid lightgrey;
+    margin-right: 5px !important;
+}
+
+.platform:last-child {
+    padding-right: 0;
+    border-right: none;
+    margin-right: 0 !important;
+}
+

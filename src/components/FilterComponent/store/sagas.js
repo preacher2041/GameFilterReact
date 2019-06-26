@@ -28,9 +28,17 @@ function* toggleFilterState(filterGroupIndex, filterButtonIndex) {
 	});
 }
 
+function* toggleFilterDrawerState(filterDrawerState) {
+	yield put({
+		type: actionTypes.TOGGLE_FILTER_DRAWER_STATE,
+		filterDrawerState
+	})
+}
+
 function* filterComponentSaga() {
 	yield takeEvery(actionTypes.FETCH_FILTER_DATA, fetchFilterData);
 	yield take(actionTypes.TOGGLE_FILTER_BUTTON_STATE, toggleFilterState);
+	yield take(actionTypes.TOGGLE_FILTER_DRAWER_STATE, toggleFilterDrawerState);
 }
 
 export default filterComponentSaga;

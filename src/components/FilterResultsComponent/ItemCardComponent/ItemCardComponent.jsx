@@ -13,17 +13,17 @@ import styles from './ItemCardComponent.module.css';
 
 export const ItemCardComponent = ({itemCardTitle, itemCardSummary, itemCardCoverUrl, itemCardRating, itemCardGenres, itemCardPlatforms}) => {
 	return (
-		<Grid item xs={3}>
+		<Grid item xs={12} lg={4}>
 			<div className={styles.root}>
 				<Paper className={styles.paper}>
-					<Grid container spacing={8}>
+					<Grid container spacing={1}>
 						<Grid item>
 							<ButtonBase className={styles.image}>
 								<img className={styles.img} alt='complex' src={itemCardCoverUrl} />
 							</ButtonBase>
 						</Grid>
 						<Grid item xs={12} sm container>
-							<Grid item xs container direction='column' spacing={8}>
+							<Grid item xs container direction='column' spacing={1}>
 								<Grid item xs>
 									<Typography gutterBottom variant='subtitle1'>
 										{itemCardTitle}
@@ -37,14 +37,14 @@ export const ItemCardComponent = ({itemCardTitle, itemCardSummary, itemCardCover
 							</Grid>
 						</Grid>
 					</Grid>
-					<Grid container spacing={8}>
+					<Grid container spacing={1}>
 						<Grid item xs={12}>
 							<Typography className={styles.summary}>
 								{itemCardSummary}
 							</Typography>
 						</Grid>
 					</Grid>
-					<Grid container spacing={8}>
+					<Grid container spacing={1}>
 						<Grid item xs={12} className={styles.genresContainer}>
 							{itemCardGenres.map((genre, i) => {
 							return (
@@ -53,7 +53,7 @@ export const ItemCardComponent = ({itemCardTitle, itemCardSummary, itemCardCover
 						})}
 						</Grid>
 					</Grid>
-					<Grid container spacing={8}>
+					<Grid container spacing={1}>
 						<Grid item xs={12}>
 							{itemCardPlatforms.map((platform, i) => {
 								// Only return those items that are on a playstation platform

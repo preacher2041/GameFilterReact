@@ -54,6 +54,12 @@ export const FiltersComponentReducer = (state = initialState, action) => {
 				filterData: updatedFilterDataArray
 			};
 
+		case actionTypes.TOGGLE_FILTER_DRAWER_STATE:
+			return {
+				...state,
+				filterDrawerState: action.filterDrawerState  !== true
+			};
+
 		default:
 			return state;
 	}

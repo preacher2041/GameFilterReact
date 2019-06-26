@@ -2,3 +2,19 @@
     position: fixed;
     margin-top: 85px !important;
 }
+
+.drawer {
+    width: 300px;
+    flex-shrink: 0;
+}
+
+.drawerPaper {
+    width: 300px;
+}
+
+.drawerHeader {
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    justify-content: flex-end;
+}

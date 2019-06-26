@@ -10,18 +10,16 @@ import {filterData} from '../../config/rootReducer';
 
 import styles from './FilterResultsComponent.module.css';
 
-const FilterResultsComponent = ({fetchGameData, gameData, gameDataIsLoading}) => {
+const FilterResultsComponent = ({fetchGameData, gameData, gameDataIsLoading, filterDrawerState}) => {
 	useEffect(() => {
 		fetchGameData();
 		// eslint-disable-next-line
 	}, []);
 
-	console.log(gameData);
-
 	if (gameDataIsLoading === false) {
 		return (
-			<Grid item xs={9} className={styles.root}>
-				<Grid container spacing={16}>
+			<Grid item xs={12} className={filterDrawerState ? styles.contentShift : styles.content}>
+				<Grid container spacing={2}>
 					{gameData.map((item, i) => {
 						return (
 							<ItemCardComponent
@@ -40,15 +38,31 @@ const FilterResultsComponent = ({fetchGameData, gameData, gameDataIsLoading}) =>
 			</Grid>
 		)
 	} else {
-		return(
-			<ItemCardPlaceholderComponent />
+		return (
+			<Grid item xs={12} className={styles.root}>
+				<Grid container spacing={2}>
+					<ItemCardPlaceholderComponent />
+					<ItemCardPlaceholderComponent />
+					<ItemCardPlaceholderComponent />
+					<ItemCardPlaceholderComponent />
+					<ItemCardPlaceholderComponent />
+					<ItemCardPlaceholderComponent />
+					<ItemCardPlaceholderComponent />
+					<ItemCardPlaceholderComponent />
+					<ItemCardPlaceholderComponent />
+					<ItemCardPlaceholderComponent />
+					<ItemCardPlaceholderComponent />
+					<ItemCardPlaceholderComponent />
+				</Grid>
+			</Grid>
 		)
 	}
 };
 
 const mapStateToProps = state => ({
 	gameData: filterData(state),
-	gameDataIsLoading: state.ItemsComponent.gameDataIsLoading
+	gameDataIsLoading: state.ItemsComponent.gameDataIsLoading,
+	filterDrawerState: state.FiltersComponent.filterDrawerState
 });
 
 const mapDispatchToProps = dispatch => ({

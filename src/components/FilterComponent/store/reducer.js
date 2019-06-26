@@ -33,15 +33,15 @@ export const FiltersComponentReducer = (state = initialState, action) => {
 		case actionTypes.TOGGLE_FILTER_BUTTON_STATE:
 			const filterGroupIndex = parseInt(action.filterGroupIndex);
 			const filterButtonIndex = parseInt(action.filterButtonIndex);
-			const updatedFilterDataArray = state.filterData.slice();
+			const updatedFilterDataArray = state.filterData.slice(); // Create copy of filterData state
+
 
 			updatedFilterDataArray.forEach((filterGroup, index) => {
 				if (index === filterGroupIndex) {
 					filterGroup.filterLabels.forEach((label, index) => {
 						if (index === filterButtonIndex) {
-							return label.isActive = !label.isActive;
+							return label.isActive = !label.isActive; // Toggle active state of filter buttons that have been clicked
 						}
-
 						return label
 					});
 				}

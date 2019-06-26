@@ -9,7 +9,7 @@ const FiltersComponent = () => {
 	return (
 		<div>
 			<AppBarComponent color='primary' />
-			<Grid container spacing={1}>
+			<Grid container spacing={8}>
 					<FilterComponent/>
 					<GameCardsContainer/>
 			</Grid>

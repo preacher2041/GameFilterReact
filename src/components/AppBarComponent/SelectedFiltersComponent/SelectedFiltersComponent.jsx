@@ -19,7 +19,7 @@ const SelectedFilters = ({selectedFilterData}) => {
 					)}
 				)
 			) : (
-				<div></div>
+				null
 			)}
 		</React.Fragment>
 	)

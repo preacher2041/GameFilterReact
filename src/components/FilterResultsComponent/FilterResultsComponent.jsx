@@ -21,7 +21,7 @@ const FilterResultsComponent = ({fetchGameData, gameData, gameDataIsLoading}) =>
 	if (gameDataIsLoading === false) {
 		return (
 			<Grid item xs={9} className={styles.root}>
-				<Grid container spacing={2}>
+				<Grid container spacing={16}>
 					{gameData.map((item, i) => {
 						return (
 							<ItemCardComponent
@@ -47,7 +47,7 @@ const FilterResultsComponent = ({fetchGameData, gameData, gameDataIsLoading}) =>
 };
 
 const mapStateToProps = state => ({
-	gameData: filterData(state.ItemsComponent.gameData, state.SelectedFiltersComponent.selectedFilterData, state.SelectedFiltersComponent.sortValue),
+	gameData: filterData(state),
 	gameDataIsLoading: state.ItemsComponent.gameDataIsLoading
 });
 

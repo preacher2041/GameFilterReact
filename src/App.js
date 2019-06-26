@@ -1,14 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import FiltersComponent from './components/FiltersComponent';
 
-class App extends Component {
-	render() {
-		return <React.Fragment>
+// Renders the root component
+export const App = () => {
+	return (
+		<React.Fragment>
 			<FiltersComponent/>
 		</React.Fragment>
-	}
-}
-
-
-export default App;
+	)
+};

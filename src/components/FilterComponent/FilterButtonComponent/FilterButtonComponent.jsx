@@ -20,6 +20,7 @@ const FilterButtonComponent = ({filterLabel, filterSlug, filterState, filterGrou
 					edge="end"
 					onChange={onFilterSwitchChange}
 					checked={filterState}
+					color='primary'
 					inputProps={{ 'aria-labelledby': 'switch-list-label-wifi' }}
 				/>
 			</ListItemSecondaryAction>

@@ -1,4 +1,179 @@
-.root {
-    margin-top: 85px !important;
-    margin-left: 485px !important;
+.timelineWrapper {
+    padding: 20px;
+    margin: 0 auto 1em;
+}
+
+.timelineItem {
+    padding: 16px;
+    margin: 0 auto;
+    max-width: 500px;
+    min-height: 250px;
+    background: #fff;
+    border: 1px solid;
+    border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+    border-radius: 3px;
+}
+
+@keyframes placeHolderShimmer{
+    0%{
+        background-position: -468px 0
+    }
+    100%{
+        background-position: 468px 0
+    }
+}
+
+.animatedBackground {
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear;
+    background: #f6f7f8;
+    background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+    background-size: 800px 104px;
+    height: 250px;
+    position: relative;
+}
+
+.backgroundMasker {
+    background: #fff;
+    position: absolute;
+}
+
+.headerTop {
+    composes: backgroundMasker;
+    top: 0;
+    left: 100px;
+    right: 0;
+    height: 10px;
+}
+
+.headerTopSubItemRight {
+    composes: backgroundMasker;
+    top: 30px;
+    right: 0;
+    height: 20px;
+    width: 70px;
+}
+
+.headerTopSubItemLeft {
+    composes: backgroundMasker;
+    top: 30px;
+    left: 100px;
+    width: 20px;
+    height: 20px;
+}
+
+.headerRight {
+    composes: backgroundMasker;
+    top: 10px;
+    right: 0;
+    height: 20px;
+    width: 40px;
+}
+
+.headerBottom {
+    composes: backgroundMasker;
+    top: 50px;
+    left: 100px;
+    height: 50px;
+    right: 0;
+}
+
+.headerLeft {
+    composes: backgroundMasker;
+    top: 10px;
+    left: 100px;
+    width: 20px;
+    height: 20px;
+}
+
+.contentTop {
+    composes: backgroundMasker;
+    top: 100px;
+    height: 20px;
+    left: 0;
+    right: 0;
+}
+
+.contentSecondLine {
+    composes: backgroundMasker;
+    top: 130px;
+    height: 5px;
+    left: 0;
+    right: 0;
+}
+
+.contentThirdLine {
+    composes: backgroundMasker;
+    top: 145px;
+    height: 5px;
+    left: 0;
+    right: 0;
+}
+
+.contentBottom {
+    composes: backgroundMasker;
+    top: 160px;
+    height: 5px;
+    left: 0;
+    right: 0;
+}
+
+.filterGroupTop {
+    composes: backgroundMasker;
+    top: 165px;
+    height: 10px;
+    left: 0;
+    right: 0;
+}
+
+.filterSpacerOne {
+    composes: backgroundMasker;
+    top: 175px;
+    height: 18px;
+    left: 75px;
+    width: 10px;
+}
+
+.filterSpaceTwo {
+    composes: backgroundMasker;
+    composes: backgroundMasker;
+    top: 175px;
+    height: 18px;
+    right: 75px;
+    width: 10px;
+}
+
+.filterSpacerThree {
+    composes: backgroundMasker;
+    top: 202px;
+    height: 18px;
+    left: 45px;
+    width: 10px;
+}
+
+.filterGroupSeparator {
+    composes: backgroundMasker;
+    top: 193px;
+    height: 10px;
+    right: 0;
+    left: 0;
+}
+
+.platformTop {
+    composes: backgroundMasker;
+    top: 220px;
+    height: 10px;
+    right: 0;
+    left: 0;
+}
+
+.platformEnd {
+    composes: backgroundMasker;
+    top: 230px;
+    height: 20px;
+    right: 0;
+    width: 150px;
 }

@@ -1,47 +1,32 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {ButtonBase} from '@material-ui/core';
+import {ListItem, ListItemText, ListItemSecondaryAction, Switch} from '@material-ui/core';
 
 import {setSelectedFilterData} from '../../AppBarComponent/store/actions';
 import {toggleFilterState} from './../store/actions';
 
-import styles from './FilterButtonComponent.module.css';
-
-const FilterButtonComponent = ({filterKey, filterButtonKey, filterLabel, filterSlug, filterState, filterGroupKey, filterGroupType, filterGroupCategory, toggleFilterState, setSelectedFilterData}) => {
-	const onFilterButtonClicked = (filterGroupIndex, filterButtonIndex) => {
-		toggleFilterState(filterGroupIndex, filterButtonIndex);
-		setSelectedFilterData(filterSlug, filterLabel, filterGroupType, filterGroupCategory, filterGroupIndex, filterButtonIndex);
+const FilterButtonComponent = ({filterLabel, filterSlug, filterState, filterGroupKey, filterGroupType, filterGroupCategory, filterButtonKey, toggleFilterState, setSelectedFilterData}) => {
+	const onFilterSwitchChange = () => {
+		toggleFilterState(filterGroupKey, filterButtonKey);
+		setSelectedFilterData(filterSlug, filterLabel, filterGroupType, filterGroupCategory, filterGroupKey, filterButtonKey);
 	};
 
-	if (filterState) {
-		return (
-			<ButtonBase
-				focusRipple
-				key={filterKey}
-				variant='contained'
-				color='primary'
-				className={styles.default}
-				onClick={() => onFilterButtonClicked(filterGroupKey, filterButtonKey)}
-			>
-				{filterLabel}
-			</ButtonBase>
-		)
-	} else {
-		return (
-			<ButtonBase
-				focusRipple
-				key={filterKey}
-				variant='outlined'
-				color='primary'
-				className={styles.default}
-				onClick={() => onFilterButtonClicked(filterGroupKey, filterButtonKey)}
-			>
-				{filterLabel}
-			</ButtonBase>
-		)
-	}
-}
+	return (
+		<ListItem>
+			<ListItemText id={filterSlug} primary={filterLabel} />
+			<ListItemSecondaryAction>
+				<Switch
+					edge="end"
+					onChange={onFilterSwitchChange}
+					checked={filterState}
+					color='primary'
+					inputProps={{ 'aria-labelledby': 'switch-list-label-wifi' }}
+				/>
+			</ListItemSecondaryAction>
+		</ListItem>
+	)
+};
 
 const mapDispatchToProps = dispatch => ({
 	toggleFilterState: (filterGroupIndex, filterButtonIndex) => dispatch(toggleFilterState(filterGroupIndex, filterButtonIndex)),

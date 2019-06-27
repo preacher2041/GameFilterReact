@@ -1,4 +1,18 @@
 .root {
     margin-top: 85px !important;
-    margin-left: 485px !important;
+    display: flex;
+}
+
+.content {
+    composes: root;
+    flex-grow: 1;
+    padding: 24px;
+    transition: margin 195ms cubic-bezier(0.4, 0, 0.6, 1) 0ms !important;
+    margin-left: 0 !important;
+}
+
+.contentShift {
+    composes: root;
+    transition: margin 225ms cubic-bezier(0.0, 0, 0.2, 1) 0ms !important;
+    margin-left: 300px !important;
 }

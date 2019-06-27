@@ -3,6 +3,7 @@ export const actionTypes = {
 	FETCH_FILTER_DATA_SUCCESS: 'FETCH_FILTER_DATA_SUCCESS',
 	FETCH_FILTER_DATA_FAILED: 'FETCH_FILTER_DATA_FAILED',
 	TOGGLE_FILTER_BUTTON_STATE: 'TOGGLE_FILTER_BUTTON_STATE',
+	TOGGLE_FILTER_DRAWER_STATE: 'TOGGLE_FILTER_DRAWER_STATE',
 };
 
 export const fetchFilterData = () => ({
@@ -23,4 +24,9 @@ export const toggleFilterState = (filterGroupIndex, filterButtonIndex) => ({
 	type: actionTypes.TOGGLE_FILTER_BUTTON_STATE,
 	filterGroupIndex,
 	filterButtonIndex
+});
+
+export const toggleFilterDrawerState = (filterDrawerState) => ({
+	type: actionTypes.TOGGLE_FILTER_DRAWER_STATE,
+	filterDrawerState,
 });
